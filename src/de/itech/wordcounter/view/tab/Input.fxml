@@ -12,8 +12,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../stylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.itech.wordcounter.controller.tab.InputController">
    <children>
-      <TextArea id="inputtext" fx:id="inputText" layoutX="32.0" layoutY="28.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="520.0" promptText="Enter your text here" styleClass="text-field" stylesheets="@../stylesheet.css" wrapText="true" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" />
-      <GridPane layoutX="40.0" layoutY="308.0" AnchorPane.rightAnchor="40.0">
+      <TextArea id="inputtext" fx:id="inputText" layoutX="40.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="520.0" promptText="Enter your text here" styleClass="text-field" stylesheets="@../stylesheet.css" wrapText="true" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" />
+      <GridPane layoutX="40.0" layoutY="308.0" AnchorPane.bottomAnchor="59.0" AnchorPane.rightAnchor="40.0">
          <columnConstraints>
             <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="NEVER" maxWidth="289.0" minWidth="10.0" prefWidth="289.0" />
             <ColumnConstraints minWidth="10.0" prefWidth="121.0" />
