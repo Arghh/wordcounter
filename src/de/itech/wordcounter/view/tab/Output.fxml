@@ -11,8 +11,9 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../stylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.itech.wordcounter.controller.tab.OutputController">
    <children>
       <TextArea fx:id="result" editable="false" layoutX="28.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="520.0" styleClass="text-field" stylesheets="@../stylesheet.css" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" />
-      <GridPane layoutX="326.0" layoutY="308.0" AnchorPane.bottomAnchor="59.0" AnchorPane.rightAnchor="40.0">
+      <GridPane layoutX="208.0" layoutY="309.0" AnchorPane.bottomAnchor="58.0" AnchorPane.rightAnchor="40.0">
          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="121.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="121.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
          </columnConstraints>
@@ -20,12 +21,17 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button id="save" fx:id="save" mnemonicParsing="false" prefHeight="30.0" prefWidth="110.0" text="Save">
+            <Button id="save" fx:id="save" mnemonicParsing="false" onAction="#outBtnSaveClicked" prefHeight="30.0" prefWidth="110.0" text="Save">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="reset" mnemonicParsing="false" onAction="#outBtnResetClicked" prefHeight="30.0" prefWidth="110.0" text="Reset" GridPane.columnIndex="1" />
+            <Button fx:id="load" mnemonicParsing="false" onAction="#outBtnLoadClicked" prefHeight="30.0" prefWidth="110.0" text="Load" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="reset" mnemonicParsing="false" onAction="#outBtnResetClicked" prefHeight="30.0" prefWidth="110.0" text="Reset" GridPane.columnIndex="2" />
          </children>
       </GridPane>
    </children>

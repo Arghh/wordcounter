@@ -22,7 +22,7 @@ public class Controller {
 		String result = Counter.wordCount(text, topWords);
 		outputController.result.setText(result);
 		tab.getSelectionModel().select(1);
-	}
+}
 
 	public void resetInput() {
 		inputController.inputText.setText("");
