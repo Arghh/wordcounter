@@ -21,18 +21,16 @@ public class DataConn {
 			Class.forName("org.h2.Driver");
 			System.out.println("Connecting to database...");
 			connection = readCredentals();
-			//connection = DriverManager.getConnection(null);
 			System.out.println("Connected database successfully...");
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery("SELECT INHALT FROM DATA");
 			while (resultSet.next()) {
-//				System.out.println(resultSet.getFetchSize());
 				System.out.println("Loading text...");
-				// System.out.println("Inhalt:" + resultSet.getString("INHALT"));
 				result.setText(resultSet.getString("INHALT"));
 			}
 
 			resultSet.close();
+
 		} catch (SQLException se) {
 			// Handle errors for JDBC
 			se.printStackTrace();
@@ -45,7 +43,8 @@ public class DataConn {
 				if (statement != null)
 					statement.close();
 			} catch (SQLException se2) {
-			} // nothing we can do
+				se2.printStackTrace();
+			}
 			try {
 				if (connection != null)
 					connection.close();
@@ -66,7 +65,8 @@ public class DataConn {
 			connection = readCredentals();
 			System.out.println("Connected database successfully...");
 			ps = connection.prepareStatement(sql);
-			System.out.println("Inserted records into table...");
+			System.out.println("Inserting records into table...");
+			ps.executeUpdate();
 		} catch (SQLException se) {
 			// Handle errors for JDBC
 			se.printStackTrace();
@@ -89,14 +89,15 @@ public class DataConn {
 		}
 
 	}
-	
+
 	private Connection readCredentals() {
 		Properties properties = new Properties();
 		Connection connection = null;
 		try {
-			properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("de/itech/wordcounter/config.properties"));
+			properties.load(Thread.currentThread().getContextClassLoader()
+					.getResourceAsStream("de/itech/wordcounter/config.properties"));
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 
 		String url = properties.getProperty("jdbc.url");
@@ -106,8 +107,7 @@ public class DataConn {
 		try {
 			connection = DriverManager.getConnection(url, username, password);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 
 		return connection;
