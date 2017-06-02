@@ -23,12 +23,12 @@
          <children>
             <Button id="save" fx:id="save" mnemonicParsing="false" onAction="#outBtnSaveClicked" prefHeight="30.0" prefWidth="110.0" text="Save">
                <GridPane.margin>
-                  <Insets right="10.0" />
+                  <Insets />
                </GridPane.margin>
             </Button>
             <Button fx:id="load" mnemonicParsing="false" onAction="#outBtnLoadClicked" prefHeight="30.0" prefWidth="110.0" text="Load" GridPane.columnIndex="1">
                <GridPane.margin>
-                  <Insets right="10.0" />
+                  <Insets />
                </GridPane.margin>
             </Button>
             <Button fx:id="reset" mnemonicParsing="false" onAction="#outBtnResetClicked" prefHeight="30.0" prefWidth="110.0" text="Reset" GridPane.columnIndex="2" />

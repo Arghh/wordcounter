@@ -55,39 +55,29 @@ public class DataConn {
 	}
 
 	public void dataWrite(TextArea result) {
-		Connection connection = null;
-		PreparedStatement ps = null;
-		String sql = "INSERT INTO DATA (INHALT) VALUES ('" + result.getText() + "')";
 
+//		String sql = "INSERT INTO DATA (INHALT) VALUES ('" + result.getText() + "')";		
 		try {
+			Connection connection = null;
+			PreparedStatement ps = null;
 			Class.forName("org.h2.Driver");
 			System.out.println("Connecting to database...");
 			connection = readCredentals();
 			System.out.println("Connected database successfully...");
+			String sql = "INSERT INTO DATA (INHALT) VALUES(?)";
 			ps = connection.prepareStatement(sql);
+			ps.setString(1, result.getText());
 			System.out.println("Inserting records into table...");
 			ps.executeUpdate();
+			ps.close();
+			System.out.println("Inserted records into table successfully...");
 		} catch (SQLException se) {
 			// Handle errors for JDBC
 			se.printStackTrace();
 		} catch (Exception e) {
 			// Handle errors for Class.forName
 			e.printStackTrace();
-		} finally {
-			// finally block used to close resources
-			try {
-				if (ps != null)
-					ps.close();
-			} catch (SQLException se2) {
-			} // nothing we can do
-			try {
-				if (connection != null)
-					connection.close();
-			} catch (SQLException se) {
-				se.printStackTrace();
-			} // end finally try
-		}
-
+		} 
 	}
 
 	private Connection readCredentals() {
