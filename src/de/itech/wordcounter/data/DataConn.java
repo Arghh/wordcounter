@@ -55,8 +55,6 @@ public class DataConn {
 	}
 
 	public void dataWrite(TextArea result) {
-
-//		String sql = "INSERT INTO DATA (INHALT) VALUES ('" + result.getText() + "')";		
 		try {
 			Connection connection = null;
 			PreparedStatement ps = null;
@@ -77,12 +75,11 @@ public class DataConn {
 		} catch (Exception e) {
 			// Handle errors for Class.forName
 			e.printStackTrace();
-		} 
+		}
 	}
 
 	private Connection readCredentals() {
 		Properties properties = new Properties();
-		Connection connection = null;
 		try {
 			properties.load(Thread.currentThread().getContextClassLoader()
 					.getResourceAsStream("de/itech/wordcounter/config.properties"));
@@ -93,7 +90,8 @@ public class DataConn {
 		String url = properties.getProperty("jdbc.url");
 		String username = properties.getProperty("jdbc.username");
 		String password = properties.getProperty("jdbc.password");
-
+		
+		Connection connection = null;
 		try {
 			connection = DriverManager.getConnection(url, username, password);
 		} catch (SQLException e) {
